@@ -631,70 +631,71 @@ export const homeMarkup = `
             class="tabpanel"
             data-panel="query"
           >
-
             <span class="ln">1</span>
             <span class="tok-kw">import</span>
-            { bando }
+            { createBandoClient }
             <span class="tok-kw">from</span>
             <span class="tok-str">'@bando-cms/client'</span>
-
             <br>
 
             <span class="ln">2</span>
-
             <br>
 
             <span class="ln">3</span>
             <span class="tok-kw">const</span>
-            posts =
-            <span class="tok-kw">await</span>
-            bando
-
+            bando = createBandoClient({
             <br>
 
             <span class="ln">4</span>
-            &nbsp;.
-            <span class="tok-fn">collection</span>(
-            <span class="tok-str">'posts'</span>
-            )
-
+            &nbsp;&nbsp;baseUrl:
+            <span class="tok-str">'http://localhost:3333'</span>,
             <br>
 
             <span class="ln">5</span>
-            &nbsp;.
-            <span class="tok-fn">where</span>(
-            <span class="tok-str">'published'</span>,
-            <span class="tok-str">'=='</span>,
-            <span class="tok-kw">true</span>
-            )
-
+            });
+            <br>
             <br>
 
             <span class="ln">6</span>
-            &nbsp;.
-            <span class="tok-fn">select</span>(
-            <span class="tok-str">'title'</span>,
-            <span class="tok-str">'slug'</span>
-            )
-
+            <span class="tok-kw">const</span>
+            { data, total } =
+            <span class="tok-kw">await</span>
+            bando
             <br>
 
             <span class="ln">7</span>
-            &nbsp;.
-            <span class="tok-fn">orderBy</span>(
-            <span class="tok-str">'createdAt'</span>,
-            <span class="tok-str">'desc'</span>
-            )
-
+            &nbsp;.<span class="tok-fn">collection</span>(<span class="tok-str">'posts'</span>)
             <br>
 
             <span class="ln">8</span>
-            &nbsp;.
-            <span class="tok-fn">get</span>()
+            &nbsp;.<span class="tok-fn">findMany</span>({
+            <br>
 
+            <span class="ln">9</span>
+            &nbsp;&nbsp;limit: <span class="tok-num">10</span>,
+            <br>
+
+            <span class="ln">10</span>
+            &nbsp;&nbsp;sort:
+            <span class="tok-str">'-createdAt'</span>,
+            <br>
+
+            <span class="ln">11</span>
+            &nbsp;&nbsp;filters: {
+            <br>
+
+            <span class="ln">12</span>
+            &nbsp;&nbsp;&nbsp;&nbsp;published:
+            <span class="tok-kw">true</span>,
+            <br>
+
+            <span class="ln">13</span>
+            &nbsp;&nbsp;}
+            <br>
+
+            <span class="ln">14</span>
+            });
           </div>
-
-
           <div
             class="tabpanel"
             data-panel="component"

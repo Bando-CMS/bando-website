@@ -128,18 +128,15 @@ export const roadmapMarkup = `
 <pre class="architecture-tree"><span class="highlight">bando/</span>
 │
 ├── <span class="accent">apps/</span>
+│   ├── cli/
 │   ├── server/
-│   ├── studio/
-│   └── docs/
+│   └── studio/
 │
 ├── <span class="accent">packages/</span>
-│   ├── core/
-│   ├── schema/
-│   ├── database/
-│   ├── api/
 │   ├── client/
-│   ├── react/
-│   └── cli/
+│   ├── config/
+│   ├── core/
+│   ├── database/
 │
 ├── <span class="accent">examples/</span>
 │   ├── nextjs/
@@ -304,28 +301,30 @@ export const roadmapMarkup = `
 
 
         <div class="code-card">
+  <div class="code-card-header">
+    <span>query.ts</span>
+    <span>Bando Client</span>
+  </div>
 
-          <div class="code-card-header">
-            <span>query.ts</span>
-            <span>Typed Client</span>
-          </div>
-
-          <pre class="code"><span class="ln">1</span><span class="kw">import</span> { bando }
+  <pre class="code"><span class="ln">1</span><span class="kw">import</span> { createBandoClient }
 <span class="ln">2</span>  <span class="kw">from</span> <span class="str">"@bando-cms/client"</span>
 <span class="ln">3</span>
-<span class="ln">4</span><span class="kw">const</span> posts =
-<span class="ln">5</span>  <span class="kw">await</span> bando
-<span class="ln">6</span>    .<span class="fn">collection</span>(<span class="str">"posts"</span>)
-<span class="ln">7</span>    .<span class="fn">where</span>(
-<span class="ln">8</span>      <span class="str">"published"</span>,
-<span class="ln">9</span>      <span class="str">"="</span>,
-<span class="ln">10</span>      <span class="kw">true</span>
-<span class="ln">11</span>    )
-<span class="ln">12</span>    .<span class="fn">find</span>()
-<span class="ln">13</span>
-<span class="ln">14</span><span class="comment">// conteúdo consumido através do client</span></pre>
-
-        </div>
+<span class="ln">4</span><span class="kw">const</span> bando = createBandoClient({
+<span class="ln">5</span>  baseUrl: <span class="str">"http://localhost:3333"</span>,
+<span class="ln">6</span>});
+<span class="ln">7</span>
+<span class="ln">8</span><span class="kw">const</span> { data, total } = <span class="kw">await</span> bando
+<span class="ln">9</span>  .<span class="fn">collection</span>(<span class="str">"posts"</span>)
+<span class="ln">10</span>  .<span class="fn">findMany</span>({
+<span class="ln">11</span>    limit: <span class="num">10</span>,
+<span class="ln">12</span>    sort: <span class="str">"-createdAt"</span>,
+<span class="ln">13</span>    filters: {
+<span class="ln">14</span>      published: <span class="kw">true</span>,
+<span class="ln">15</span>    },
+<span class="ln">16</span>  });
+<span class="ln">17</span>
+<span class="ln">18</span><span class="comment">// conteúdo consumido através do client</span></pre>
+</div>
 
       </div>
 
