@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
+
 import "./globals.css";
+import { LanguageHtml } from "@/components/LanguageHtml";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -18,21 +20,6 @@ export const metadata: Metadata = {
   icons: {
     icon: "/logo.png",
   },
-  openGraph: {
-    type: "website",
-    locale: "pt_PT",
-    siteName: "Bando",
-    title: "Bando — CMS headless, open source e TypeScript-first",
-    description: "Define o teu conteúdo em TypeScript.",
-    images: [
-      {
-        url: "/logo.png",
-        width: 512,
-        height: 512,
-        alt: "Bando CMS",
-      },
-    ],
-  },
 };
 
 export default function RootLayout({
@@ -42,7 +29,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-PT">
-      <body className={spaceGrotesk.className}>{children}</body>
+      <body className={spaceGrotesk.className}>
+        <LanguageHtml />
+        {children}
+      </body>
     </html>
   );
 }

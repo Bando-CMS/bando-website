@@ -2841,3 +2841,144 @@ footer {
     transition: none;
   }
 }
+
+/* LANGUAGE SWITCHER */
+
+.language-switcher {
+  position: relative;
+}
+
+.language-trigger {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  font-family: var(--font-mono);
+  font-size: .78rem;
+  color: var(--muted);
+
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+
+  padding: 8px 12px;
+
+  transition:
+    color .15s ease,
+    border-color .15s ease,
+    background .15s ease;
+}
+
+.language-trigger:hover {
+  color: var(--fg);
+  border-color: var(--muted-2);
+  background: var(--panel-2);
+}
+
+.language-trigger[aria-expanded="true"] {
+  color: var(--fg);
+  border-color: var(--cyan);
+  background: var(--panel-2);
+}
+
+.language-globe {
+  display: flex;
+  color: var(--muted-2);
+  transition: color .15s ease;
+}
+
+.language-trigger:hover .language-globe,
+.language-trigger[aria-expanded="true"] .language-globe {
+  color: var(--cyan);
+}
+
+.language-globe svg {
+  width: 13px;
+  height: 13px;
+}
+
+.language-chevron {
+  display: flex;
+  color: var(--muted-2);
+  transition: transform .18s ease;
+}
+
+.language-chevron svg {
+  width: 10px;
+  height: 10px;
+}
+
+.language-chevron.is-open {
+  transform: rotate(180deg);
+}
+
+/* Dropdown */
+
+.language-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 60;
+
+  min-width: 160px;
+
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+
+  padding: 6px;
+
+  box-shadow: 0 20px 40px -16px rgba(0, 0, 0, .6);
+}
+
+.language-menu li + li {
+  margin-top: 2px;
+}
+
+.language-menu a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  font-family: var(--font-body);
+  font-size: .85rem;
+  color: var(--muted);
+
+  padding: 9px 10px;
+  border-radius: 6px;
+
+  transition:
+    background .12s ease,
+    color .12s ease;
+}
+
+.language-menu a:hover {
+  background: var(--panel-2);
+  color: var(--fg);
+}
+
+.language-menu a.is-active {
+  color: var(--fg);
+  background: var(--panel-2);
+}
+
+.language-menu a.is-active::after {
+  content: '';
+  margin-left: auto;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--cyan);
+}
+
+.lang-flag {
+  font-size: .95rem;
+  line-height: 1;
+}
+
+/* Mobile: esconde junto com o resto do nav-actions */
+@media (max-width: 780px) {
+  .language-switcher {
+    display: none;
+  }
+}
