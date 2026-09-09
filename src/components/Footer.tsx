@@ -37,6 +37,7 @@ export function Footer({ roadmap = false }: { roadmap?: boolean }) {
         ],
 
         projectLinks: [
+          ["Documentation", `${prefix}/docs`],
           ["MIT License", "https://github.com/Bando-CMS/bando-cms/blob/main/LICENSE"],
           ["Roadmap", `${prefix}/roadmap`],
         ],
@@ -74,6 +75,7 @@ export function Footer({ roadmap = false }: { roadmap?: boolean }) {
         ],
 
         projectLinks: [
+          ["Documentação", `${prefix}/docs`],
           [
             "Licença MIT",
             "https://github.com/Bando-CMS/bando-cms/blob/main/LICENSE",
@@ -84,8 +86,8 @@ export function Footer({ roadmap = false }: { roadmap?: boolean }) {
         communityTitle: "Comunidade",
         projectColumnTitle: roadmap ? "" : "Projeto",
 
-        copyright: "© 2026 Bando. Código aberto sob licença MIT.",
-        builtWith: "Construído com TypeScript & React.",
+        copyright: "© 2026 Bando CMS. Código aberto sob licença MIT.",
+        builtWith: "Construído com TypeScript, React & PostgreSQL.",
       };
 
   return (

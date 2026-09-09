@@ -1,27 +1,23 @@
 export const communityMarkup = `
-
   <!-- HERO -->
-
   <section class="community-hero">
     <div class="wrap">
-
       <span class="eyebrow">
         Comunidade · Open source
       </span>
 
       <h1>
-        Constrói o Bando<br />
-        <em>connosco.</em>
+        O Bando é aberto.<br />
+        <em>Vem fazer parte.</em>
       </h1>
 
       <p class="hero-sub">
-        O Bando está a ser construído em público.
-        O código, as decisões e a evolução do projeto estão abertos
-        para quem quiser acompanhar, discutir e contribuir.
+        O Bando é construído de forma aberta, com código, decisões
+        e ideias acessíveis à comunidade. Explora o projeto,
+        partilha conhecimento, contribui e ajuda a definir o que vem a seguir.
       </p>
 
       <div class="hero-actions">
-
         <a
           class="btn btn-primary"
           href="https://discord.gg/CddA5Dbbr2"
@@ -37,44 +33,36 @@ export const communityMarkup = `
           target="_blank"
           rel="noreferrer"
         >
-          Ver no GitHub
+          Explorar o GitHub
         </a>
-
       </div>
-
     </div>
   </section>
 
 
   <!-- COMMUNITY -->
-
   <section class="section" id="comunidade">
-
     <div class="wrap">
-
       <div class="section-head">
-
         <span class="eyebrow">
-          Construído em público
+          A comunidade
         </span>
 
         <h2>
-          O Bando cresce com a comunidade.
+          Mais do que utilizadores.<br />
+          <em>Parte do projeto.</em>
         </h2>
 
         <p>
-          Não queremos construir apenas mais um CMS.
-          Queremos construir uma ferramenta que developers possam
-          entender, modificar e melhorar juntos.
+          O Bando cresce através das pessoas que o utilizam, questionam,
+          experimentam e contribuem. A comunidade é o espaço onde
+          ideias se transformam em melhorias reais.
         </p>
-
       </div>
-
 
       <div class="community-grid">
 
         <div class="community-card">
-
           <div class="community-icon">
             <svg
               viewBox="0 0 24 24"
@@ -93,8 +81,9 @@ export const communityMarkup = `
           </h3>
 
           <p>
-            O espaço para conversar sobre o Bando, discutir ideias,
-            acompanhar o desenvolvimento e conhecer outros developers.
+            Conversa diretamente com a comunidade, partilha ideias,
+            tira dúvidas, mostra o que estás a construir e acompanha
+            as novidades do Bando.
           </p>
 
           <a
@@ -106,12 +95,10 @@ export const communityMarkup = `
             Entrar na comunidade
             <span>→</span>
           </a>
-
         </div>
 
 
         <div class="community-card">
-
           <div class="community-icon">
             <svg
               viewBox="0 0 24 24"
@@ -139,9 +126,9 @@ export const communityMarkup = `
           </h3>
 
           <p>
-            O código fonte do Bando está aberto.
-            Explora o projeto, abre issues, propõe mudanças
-            ou contribui diretamente através de pull requests.
+            O código do Bando é público. Explora a arquitetura,
+            acompanha alterações, reporta problemas, propõe melhorias
+            e contribui diretamente para o projeto.
           </p>
 
           <a
@@ -153,12 +140,10 @@ export const communityMarkup = `
             Explorar o GitHub
             <span>→</span>
           </a>
-
         </div>
 
 
         <div class="community-card">
-
           <div class="community-icon">
             <svg
               viewBox="0 0 24 24"
@@ -175,56 +160,48 @@ export const communityMarkup = `
           </h3>
 
           <p>
-            Código não é a única forma de contribuir.
-            Documentação, testes, exemplos, issues e feedback
-            também ajudam o projeto a avançar.
+            Código é apenas uma das formas de contribuir.
+            Documentação, testes, exemplos, issues, feedback
+            e conhecimento também fazem o projeto avançar.
           </p>
 
           <a
             class="card-link"
             href="https://github.com/Bando-CMS/bando-cms"
+            target="_blank"
+            rel="noreferrer"
           >
-            Como contribuir
+            Contribuir para o projeto
             <span>→</span>
           </a>
-
         </div>
 
       </div>
-
     </div>
-
   </section>
 
 
   <!-- WAYS TO CONTRIBUTE -->
-
   <section class="section section-alt">
-
     <div class="wrap">
-
       <div class="section-head">
-
         <span class="eyebrow">
           Participa
         </span>
 
         <h2>
-          Há mais de uma forma de ajudar.
+          Contribui da forma que fizer sentido.
         </h2>
 
         <p>
-          Não precisas de conhecer todo o código do Bando para fazer parte
-          do projeto.
+          Não precisas de conhecer todo o Bando para contribuir.
+          Há diferentes formas de ajudar o projeto a ficar melhor.
         </p>
-
       </div>
-
 
       <div class="contribution-list">
 
         <div class="contribution-item">
-
           <span class="num">
             01
           </span>
@@ -235,16 +212,15 @@ export const communityMarkup = `
             </h3>
 
             <p>
-              Implementa funcionalidades, corrige bugs, melhora a arquitetura
-              ou ajuda a tornar o Bando mais rápido e confiável.
+              Implementa funcionalidades, corrige bugs, melhora a
+              arquitetura ou ajuda a tornar o Bando mais rápido,
+              simples e confiável.
             </p>
           </div>
-
         </div>
 
 
         <div class="contribution-item">
-
           <span class="num">
             02
           </span>
@@ -255,16 +231,15 @@ export const communityMarkup = `
             </h3>
 
             <p>
-              Ajuda developers a entender o projeto, escrever melhores exemplos
-              e tornar o Bando mais fácil de utilizar.
+              Ajuda outros developers a compreender o Bando,
+              cria exemplos melhores e torna a experiência de
+              utilização mais clara.
             </p>
           </div>
-
         </div>
 
 
         <div class="contribution-item">
-
           <span class="num">
             03
           </span>
@@ -275,71 +250,64 @@ export const communityMarkup = `
             </h3>
 
             <p>
-              Encontraste um problema ou tens uma ideia?
-              Abre uma issue e ajuda-nos a perceber o que deve ser melhorado.
+              Encontraste um problema? Tens uma ideia?
+              Reporta, explica e ajuda-nos a perceber como
+              o Bando pode ser melhor.
             </p>
           </div>
-
         </div>
 
 
         <div class="contribution-item">
-
           <span class="num">
             04
           </span>
 
           <div>
             <h3>
-              Discussões e RFCs
+              Discussões
             </h3>
 
             <p>
-              Algumas decisões importantes precisam de discussão antes
-              de serem implementadas. A tua opinião pode fazer parte delas.
+              Algumas das melhores decisões começam numa conversa.
+              Partilha a tua perspetiva, questiona decisões e ajuda
+              a pensar no futuro do projeto.
             </p>
           </div>
-
         </div>
 
       </div>
-
     </div>
-
   </section>
 
 
-  <!-- BUILD IN PUBLIC -->
-
+  <!-- OPEN DEVELOPMENT -->
   <section class="section">
-
     <div class="wrap">
-
       <div class="public-build">
 
         <div>
-
           <span class="eyebrow">
-            Build in public
+            Desenvolvimento aberto
           </span>
 
           <h2>
-            Vê o projeto crescer
-            desde o início.
+            Acompanha o Bando.<br />
+            <em>Influência o que vem a seguir.</em>
           </h2>
 
           <p>
-            O Bando ainda está numa fase inicial.
-            Isso significa que muitas das decisões fundamentais
-            ainda estão a ser tomadas.
+            O Bando já está disponível para ser utilizado.
+            A partir daqui, o projeto continua a evoluir através
+            de novas funcionalidades, melhorias e contribuições
+            da comunidade.
           </p>
 
           <p>
-            É precisamente por isso que queremos construir em público:
-            para que developers possam acompanhar o processo,
-            questionar decisões e ajudar a moldar o projeto.
+            Ao acompanhar o desenvolvimento de perto, podes perceber
+            como o projeto evolui, participar nas discussões e ajudar
+            a decidir quais problemas merecem ser resolvidos.
           </p>
-
         </div>
 
 
@@ -357,11 +325,11 @@ export const communityMarkup = `
 
           <div class="status-row">
             <span>
-              Estado
+              Versão
             </span>
 
             <strong>
-              Em desenvolvimento
+              1.0.0
             </strong>
           </div>
 
@@ -388,34 +356,29 @@ export const communityMarkup = `
         </div>
 
       </div>
-
     </div>
-
   </section>
 
 
   <!-- CTA -->
-
   <section class="final-cta">
-
     <div class="wrap">
 
       <span
         class="eyebrow"
         style="justify-content:center;"
       >
-        A próxima contribuição pode ser tua
+        A comunidade começa contigo
       </span>
 
       <h2>
-        Vamos construir o Bando juntos.
+        Constrói algo com o Bando.
       </h2>
 
       <p>
-        Entra no Discord, explora o código e acompanha
-        a evolução do projeto.
+        Entra no Discord, explora o código e faz parte
+        da comunidade que está a levar o Bando mais longe.
       </p>
-
 
       <div class="final-actions">
 
@@ -434,13 +397,10 @@ export const communityMarkup = `
           target="_blank"
           rel="noreferrer"
         >
-          Ver GitHub
+          Explorar o GitHub
         </a>
 
       </div>
-
     </div>
-
   </section>
-
 `;

@@ -23,17 +23,13 @@ export function Navbar({ page }: NavbarProps) {
       ? isEnglish
         ? [
           ["Features", `${prefix}/#features`],
-          ["Community", `${prefix}/community`],
           ["Code", `${prefix}/#code`],
-          ["How it works", `${prefix}/#how-it-works`],
-          ["Open source", `${prefix}/#open-source`],
+          ["Community", `${prefix}/community`],
         ]
         : [
           ["Recursos", `${prefix}/#recursos`],
-          ["Comunidade", `${prefix}/community`],
           ["Código", `${prefix}/#codigo`],
-          ["Como funciona", `${prefix}/#como-funciona`],
-          ["Open source", `${prefix}/#open-source`],
+          ["Comunidade", `${prefix}/community`],
         ]
       : page === "roadmap"
         ? isEnglish
@@ -61,16 +57,9 @@ export function Navbar({ page }: NavbarProps) {
             ]
           : isEnglish
             ? [
-              ["Introduction", "#introduction"],
-              ["Installation", "#installation"],
-              ["Quick Start", "#quick-start"],
-              ["Architecture", "#architecture"],
+              
             ]
-            : [
-              ["Introdução", "#introducao"],
-              ["Instalação", "#instalacao"],
-              ["Início rápido", "#inicio-rapido"],
-              ["Arquitetura", "#arquitetura"],
+            : [ ,
             ];
 
   const basePath = isEnglish
@@ -79,9 +68,9 @@ export function Navbar({ page }: NavbarProps) {
 
   const ctaHref =
     page === "home"
-      ? `${prefix}/roadmap`
+      ? `${prefix}/docs`
       : page === "roadmap"
-        ? "#roadmap"
+        ? "/docs"
         : page === "community"
           ? "https://github.com/Bando-CMS/bando-cms"
           : `${prefix}/community`;
@@ -95,7 +84,7 @@ export function Navbar({ page }: NavbarProps) {
         ? isEnglish
           ? "Community"
           : "Comunidade"
-        : "Roadmap";
+      : page === "home" ? (isEnglish ? "Get started" : "Começar") : "Documentação";
 
   useEffect(() => {
     function handleClick(e: MouseEvent) {

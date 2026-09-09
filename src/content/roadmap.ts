@@ -2,27 +2,28 @@ export const roadmapMarkup = `
   <!-- =====================================================
        HERO
   ====================================================== -->
-
   <section class="page-hero">
     <div class="wrap">
       <div class="page-hero-inner">
         <span class="eyebrow">
-          Building in public · Open source
+          Open source · Roadmap público
         </span>
 
         <h1>
-          Estamos a construir o Bando
-          <em>em público.</em>
+          Veja para onde o Bando está indo
+          <em>a seguir.</em>
         </h1>
 
         <p>
-          O Bando já possui a sua fundação técnica, incluindo o schema engine,
-          database layer, API, autenticação, client e Studio. Esta página
-          acompanha o que já foi construído e o que vem a seguir.
+          O Bando já está disponível na versão v1.0.0, com sua
+          infraestrutura principal implementada: motor de schemas,
+          camada de banco de dados, API, autenticação, client,
+          CLI e Studio.
+          Este roadmap mostra o que já existe hoje e o que vem a seguir.
         </p>
 
         <div class="page-meta">
-          <span class="meta-tag">MIT License</span>
+          <span class="meta-tag">Licença MIT</span>
           <span class="meta-tag">TypeScript</span>
           <span class="meta-tag">Local-first</span>
           <span class="meta-tag">Self-hosted</span>
@@ -37,50 +38,47 @@ export const roadmapMarkup = `
   <!-- =====================================================
        MANIFESTO
   ====================================================== -->
-
   <section class="manifesto">
     <div class="wrap">
       <div class="manifesto-grid">
-
         <div class="manifesto-title">
           <span class="eyebrow">
             A ideia
           </span>
 
           <h2>
-            O CMS deve trabalhar para o developer.
+            O CMS deve trabalhar para o desenvolvedor.
           </h2>
         </div>
 
         <div class="manifesto-content">
-
           <p>
-            O Bando nasceu de uma ideia simples:
+            O Bando começou com uma ideia simples:
             <strong>
-              o conteúdo da tua aplicação deveria poder viver
-              na tua própria infraestrutura.
+              o conteúdo da sua aplicação deve poder viver
+              na sua própria infraestrutura.
             </strong>
           </p>
 
           <p>
-            Queremos construir um CMS headless moderno, mas com uma
-            filosofia diferente. Local-first, open source e orientado
-            para developers.
+            Criamos um headless CMS moderno baseado em uma filosofia
+            diferente: local-first, open source, self-hosted e pensado
+            para a forma como os desenvolvedores realmente trabalham.
           </p>
 
           <p>
-            A fundação do Bando já está a ser construída: schemas definidos
-            em TypeScript, persistência em PostgreSQL, API REST, autenticação,
-            typed client e um Studio para gerir conteúdo.
+            Hoje, o Bando oferece a base necessária para definir conteúdo
+            em TypeScript, armazená-lo com PostgreSQL, disponibilizá-lo
+            através de uma API, proteger o acesso com autenticação,
+            consultá-lo através de um client tipado e gerenciá-lo
+            através do Bando Studio.
           </p>
 
           <div class="terminal-line">
             <span class="prompt">$</span>
-            defineCollection(...)
+            npm install bando-cms
           </div>
-
         </div>
-
       </div>
     </div>
   </section>
@@ -89,42 +87,33 @@ export const roadmapMarkup = `
   <!-- =====================================================
        ARCHITECTURE
   ====================================================== -->
-
   <section class="architecture" id="arquitetura">
     <div class="wrap">
-
       <div class="section-head">
-
         <span class="eyebrow">
           Arquitetura
         </span>
 
         <h2>
-          Uma base modular. Um sistema inteiro.
+          Uma base modular. Um sistema completo.
         </h2>
 
         <p>
-          O Bando está organizado como um monorepo modular. Cada parte
-          possui uma responsabilidade clara e pode evoluir de forma
-          independente.
+          O Bando é organizado como um monorepo modular. Cada parte
+          possui uma responsabilidade clara, trabalhando em conjunto
+          como uma infraestrutura completa de conteúdo.
         </p>
-
       </div>
 
       <div class="architecture-panel">
-
         <div class="architecture-header">
-
           <span class="dot"></span>
           <span class="dot"></span>
           <span class="dot"></span>
-
           <span>bando/</span>
-
         </div>
 
         <div class="architecture-body">
-
 <pre class="architecture-tree"><span class="highlight">bando/</span>
 │
 ├── <span class="accent">apps/</span>
@@ -149,11 +138,8 @@ export const roadmapMarkup = `
 ├── docker-compose.yml
 ├── pnpm-workspace.yaml
 └── package.json</pre>
-
         </div>
-
       </div>
-
     </div>
   </section>
 
@@ -161,115 +147,83 @@ export const roadmapMarkup = `
   <!-- =====================================================
        SYSTEM FLOW
   ====================================================== -->
-
   <section class="system-flow">
-
     <div class="wrap">
-
       <div class="system-flow-grid">
 
         <div class="system-box">
-
           <div class="system-number">01</div>
-
           <h3>Schema</h3>
-
           <p>
-            Define o conteúdo através de TypeScript e
+            Defina seu conteúdo usando TypeScript e
             <code>defineCollection()</code>.
           </p>
-
         </div>
 
         <div class="system-box">
-
           <div class="system-number">02</div>
-
           <h3>Engine</h3>
-
           <p>
-            O schema engine interpreta e descobre as collections
-            e os seus campos.
+            O motor de schemas descobre suas collections,
+            campos, relacionamentos e configurações.
           </p>
-
         </div>
 
         <div class="system-box">
-
           <div class="system-number">03</div>
-
           <h3>Database</h3>
-
           <p>
-            O database layer persiste e disponibiliza operações
-            CRUD sobre o conteúdo.
+            A camada de banco de dados armazena seu conteúdo
+            e fornece operações CRUD através do PostgreSQL.
           </p>
-
         </div>
 
         <div class="system-box">
-
           <div class="system-number">04</div>
-
           <h3>Studio</h3>
-
           <p>
-            O Studio descobre collections e permite gerir
-            documentos visualmente.
+            O Bando Studio descobre collections e permite
+            gerenciar documentos através de uma interface visual.
           </p>
-
         </div>
 
         <div class="system-box">
-
           <div class="system-number">05</div>
-
           <h3>API</h3>
-
           <p>
-            A API REST disponibiliza o conteúdo para aplicações
-            externas e frontends.
+            A API REST disponibiliza seu conteúdo para
+            as aplicações e frontends que você construir.
           </p>
-
         </div>
 
       </div>
-
     </div>
-
   </section>
 
 
   <!-- =====================================================
        SYNTAX
   ====================================================== -->
-
   <section class="syntax-section">
-
     <div class="wrap">
-
       <div class="section-head">
-
         <span class="eyebrow">
-          Developer experience
+          Experiência do desenvolvedor
         </span>
 
         <h2>
-          A sintaxe que estamos a construir.
+          Defina seu conteúdo em código.
         </h2>
 
         <p>
-          O Bando permite definir o modelo de conteúdo diretamente
-          no código TypeScript.
+          O Bando permite definir seu modelo de conteúdo diretamente
+          em TypeScript, mantendo o schema próximo da sua aplicação.
         </p>
-
       </div>
-
 
       <div class="syntax-grid">
 
         <div class="code-card">
-
           <div class="code-card-header">
             <span>schema.ts</span>
             <span>Bando Core</span>
@@ -280,7 +234,7 @@ export const roadmapMarkup = `
 <span class="ln">3</span>  text,
 <span class="ln">4</span>  image,
 <span class="ln">5</span>  richText,
-<span class="ln">6</span>} <span class="kw">from</span> <span class="str">"@bando-cms/core"</span>
+<span class="ln">6</span>} <span class="kw">from</span> <span class="str">"bando-cms"</span>
 <span class="ln">7</span>
 <span class="ln">8</span><span class="kw">export const</span> post =
 <span class="ln">9</span>  <span class="fn">defineCollection</span>({
@@ -296,18 +250,17 @@ export const roadmapMarkup = `
 <span class="ln">19</span>      body: <span class="fn">richText</span>(),
 <span class="ln">20</span>    },
 <span class="ln">21</span>  })</pre>
-
         </div>
 
 
         <div class="code-card">
-  <div class="code-card-header">
-    <span>query.ts</span>
-    <span>Bando Client</span>
-  </div>
+          <div class="code-card-header">
+            <span>query.ts</span>
+            <span>Bando Client</span>
+          </div>
 
-  <pre class="code"><span class="ln">1</span><span class="kw">import</span> { createBandoClient }
-<span class="ln">2</span>  <span class="kw">from</span> <span class="str">"@bando-cms/client"</span>
+          <pre class="code"><span class="ln">1</span><span class="kw">import</span> { createBandoClient }
+<span class="ln">2</span>  <span class="kw">from</span> <span class="str">"bando-cms"</span>
 <span class="ln">3</span>
 <span class="ln">4</span><span class="kw">const</span> bando = createBandoClient({
 <span class="ln">5</span>  baseUrl: <span class="str">"http://localhost:3333"</span>,
@@ -324,62 +277,54 @@ export const roadmapMarkup = `
 <span class="ln">16</span>  });
 <span class="ln">17</span>
 <span class="ln">18</span><span class="comment">// conteúdo consumido através do client</span></pre>
-</div>
+        </div>
 
       </div>
-
     </div>
-
   </section>
 
 
   <!-- =====================================================
        ROADMAP
   ====================================================== -->
-
   <section class="roadmap" id="roadmap">
-
     <div class="wrap">
-
       <div class="section-head">
-
         <span class="eyebrow">
           Roadmap público
         </span>
 
         <h2>
-          O que já construímos. O que vem a seguir.
+          O que existe hoje. O que vem a seguir.
         </h2>
 
         <p>
-          O roadmap representa a direção atual do projeto. As prioridades
-          podem mudar conforme o Bando evolui e recebe feedback da comunidade.
+          O Bando v1.0.0 fornece a infraestrutura principal necessária
+          para executar e utilizar a plataforma. O roadmap agora foca
+          na expansão das suas capacidades e da experiência do desenvolvedor.
+          As prioridades podem evoluir de acordo com o feedback da comunidade.
         </p>
-
       </div>
-
 
       <div class="roadmap-list">
 
 
         <!-- PHASE 0 -->
-
         <div class="roadmap-item">
-
           <div class="roadmap-phase">
-            Phase 0<br>
-            Foundation
+            Fase 0<br>
+            Fundação
           </div>
 
           <div class="roadmap-content">
-
             <h3>
-              Fundação do projeto
+              Fundação do Projeto
             </h3>
 
             <p>
-              A fundação do monorepo, tooling, TypeScript, workspace,
-              Docker e infraestrutura inicial já está implementada.
+              O monorepo, as ferramentas, a configuração TypeScript,
+              o workspace, o ambiente Docker e a estrutura principal
+              do projeto estão implementados.
             </p>
 
             <div class="roadmap-tasks">
@@ -388,475 +333,411 @@ export const roadmapMarkup = `
               <span class="task">pnpm</span>
               <span class="task">Docker</span>
               <span class="task">PostgreSQL</span>
-              <span class="task">Project structure</span>
+              <span class="task">Estrutura do projeto</span>
             </div>
-
           </div>
 
           <div class="roadmap-status status-complete">
             ● Concluído
           </div>
-
         </div>
 
 
         <!-- PHASE 1 -->
-
         <div class="roadmap-item">
-
           <div class="roadmap-phase">
-            Phase 1<br>
+            Fase 1<br>
             Schema
           </div>
 
           <div class="roadmap-content">
-
             <h3>
-              Schema Engine
+              Motor de Schemas
             </h3>
 
             <p>
-              O Bando já possui a fundação do schema engine, incluindo
-              <code>defineCollection()</code>, descoberta de schemas
-              e definição de campos.
+              O motor de schemas fornece definições de collections,
+              descoberta de schemas, definição de campos, relacionamentos,
+              validação de referências e tipos TypeScript.
             </p>
 
             <div class="roadmap-tasks">
               <span class="task">defineCollection()</span>
-              <span class="task">Fields</span>
-              <span class="task">Schema discovery</span>
-              <span class="task">TypeScript types</span>
-              <span class="task">Validation foundation</span>
+              <span class="task">Campos</span>
+              <span class="task">Descoberta de schemas</span>
+              <span class="task">Tipos TypeScript</span>
+              <span class="task">Validação</span>
+              <span class="task">Relacionamentos</span>
+              <span class="task">Validação de referências</span>
+              <span class="task">Proteção de referências</span>
             </div>
-
           </div>
 
           <div class="roadmap-status status-complete">
             ● Concluído
           </div>
-
         </div>
 
 
         <!-- PHASE 2 -->
-
         <div class="roadmap-item">
-
           <div class="roadmap-phase">
-            Phase 2<br>
+            Fase 2<br>
             Database
           </div>
 
           <div class="roadmap-content">
-
             <h3>
-              Database Engine
+              Motor de Banco de Dados
             </h3>
 
             <p>
-              A camada de persistência PostgreSQL já está funcional,
-              incluindo operações CRUD e integração com as collections.
+              A persistência com PostgreSQL está funcional, com operações
+              CRUD, queries, adapters e integração com collections.
             </p>
 
             <div class="roadmap-tasks">
               <span class="task">PostgreSQL</span>
-              <span class="task">Persistence</span>
+              <span class="task">Persistência</span>
               <span class="task">CRUD</span>
               <span class="task">Queries</span>
               <span class="task">Database adapter</span>
             </div>
-
           </div>
 
           <div class="roadmap-status status-complete">
             ● Concluído
           </div>
-
         </div>
 
 
         <!-- PHASE 3 -->
-
         <div class="roadmap-item">
-
           <div class="roadmap-phase">
-            Phase 3<br>
+            Fase 3<br>
             API
           </div>
 
           <div class="roadmap-content">
-
             <h3>
-              API Layer
+              Camada de API
             </h3>
 
             <p>
-              A API HTTP já disponibiliza collections e documents,
-              incluindo operações de leitura, criação, atualização
-              e remoção.
+              A API HTTP fornece operações para collections e documentos,
+              incluindo leitura, criação, atualização, exclusão,
+              filtragem e validação.
             </p>
 
             <div class="roadmap-tasks">
               <span class="task">REST</span>
               <span class="task">Collections</span>
-              <span class="task">Documents</span>
+              <span class="task">Documentos</span>
               <span class="task">Queries</span>
-              <span class="task">Filtering</span>
-              <span class="task">Validation</span>
+              <span class="task">Filtros</span>
+              <span class="task">Validação</span>
             </div>
-
           </div>
 
           <div class="roadmap-status status-complete">
             ● Concluído
           </div>
-
         </div>
 
 
         <!-- PHASE 4 -->
-
         <div class="roadmap-item">
-
           <div class="roadmap-phase">
-            Phase 4<br>
+            Fase 4<br>
             Auth
           </div>
 
           <div class="roadmap-content">
-
             <h3>
-              Authentication & Authorization
+              Autenticação e Autorização
             </h3>
 
             <p>
-              O sistema de autenticação e autorização já possui uma
-              fundação funcional para proteger o Studio e a API.
+              A autenticação e autorização fornecem a base para proteger
+              o Studio e a API através de controles de acesso seguros.
             </p>
 
             <div class="roadmap-tasks">
               <span class="task">Login</span>
               <span class="task">JWT</span>
-              <span class="task">Sessions</span>
+              <span class="task">Sessões</span>
               <span class="task">Logout</span>
               <span class="task">RBAC</span>
-              <span class="task">Permissions</span>
+              <span class="task">Permissões</span>
             </div>
-
           </div>
 
           <div class="roadmap-status status-complete">
             ● Concluído
           </div>
-
         </div>
 
 
         <!-- PHASE 5 -->
-
         <div class="roadmap-item">
-
           <div class="roadmap-phase">
-            Phase 5<br>
+            Fase 5<br>
             Studio
           </div>
 
           <div class="roadmap-content">
-
             <h3>
               Bando Studio
             </h3>
 
             <p>
-              O Studio já é capaz de comunicar com a API real, descobrir
-              collections e schemas e gerir documentos através da interface.
+              O Bando Studio conecta-se à API real, fornece um dashboard,
+              descobre collections e schemas e permite gerenciar documentos
+              através da interface.
             </p>
 
             <div class="roadmap-tasks">
               <span class="task">React</span>
-              <span class="task">Authentication</span>
-              <span class="task">Collection explorer</span>
-              <span class="task">Document listing</span>
-              <span class="task">Create</span>
-              <span class="task">Edit</span>
-              <span class="task">Delete</span>
+              <span class="task">Autenticação</span>
+              <span class="task">Explorador de collections</span>
+              <span class="task">Listagem de documentos</span>
+              <span class="task">Criar</span>
+              <span class="task">Editar</span>
+              <span class="task">Excluir</span>
+              <span class="task">Dashboard</span>
+              <span class="task">Seletores de relacionamentos</span>
             </div>
-
           </div>
 
-          <div class="roadmap-status status-progress">
-            ● Em evolução
+          <div class="roadmap-status status-complete">
+            ● Concluído
           </div>
-
         </div>
 
 
         <!-- PHASE 6 -->
-
         <div class="roadmap-item">
-
           <div class="roadmap-phase">
-            Phase 6<br>
+            Fase 6<br>
             Client
           </div>
 
           <div class="roadmap-content">
-
             <h3>
-              Developer Experience
+              Experiência do Desenvolvedor
             </h3>
 
             <p>
-              A base do client já existe. O próximo objetivo é tornar
-              a experiência de consumo do Bando cada vez mais tipada,
-              simples e integrada com diferentes frameworks.
+              O client TypeScript fornece operações CRUD, queries com filtros,
+              paginação e tipagem genérica de collections para trabalhar
+              com o Bando diretamente na sua aplicação.
             </p>
 
             <div class="roadmap-tasks">
               <span class="task">Client</span>
-              <span class="task">Typed queries</span>
-              <span class="task">Type generation</span>
-              <span class="task">Framework integrations</span>
+              <span class="task">Queries tipadas</span>
+              <span class="task">Tipagem genérica</span>
+              <span class="task">Geração de tipos</span>
+              <span class="task">Integrações com frameworks</span>
               <span class="task">CLI</span>
             </div>
-
           </div>
 
-          <div class="roadmap-status status-progress">
-            ● Em construção
+          <div class="roadmap-status status-complete">
+            ● Concluído
           </div>
-
         </div>
 
 
         <!-- PHASE 7 -->
-
         <div class="roadmap-item">
-
           <div class="roadmap-phase">
-            Phase 7<br>
-            Content
+            Fase 7<br>
+            Conteúdo
           </div>
 
           <div class="roadmap-content">
-
             <h3>
-              Content Experience
+              Experiência de Conteúdo
             </h3>
 
             <p>
-              Melhorar a experiência editorial e preparar o Studio
-              para fluxos de conteúdo mais completos.
+              Expandir a experiência editorial com fluxos de conteúdo
+              mais completos e capacidades mais avançadas de mídia
+              e publicação.
             </p>
 
             <div class="roadmap-tasks">
               <span class="task">Rich Text</span>
-              <span class="task">Media</span>
+              <span class="task">Mídia</span>
               <span class="task">Uploads</span>
-              <span class="task">Drafts</span>
-              <span class="task">Publishing</span>
+              <span class="task">Rascunhos</span>
+              <span class="task">Publicação</span>
               <span class="task">Preview</span>
-              <span class="task">Revisions</span>
+              <span class="task">Revisões</span>
             </div>
-
           </div>
 
           <div class="roadmap-status status-planned">
-            ○ Planeado
+            ○ Planejado
           </div>
-
         </div>
 
 
         <!-- PHASE 8 -->
-
         <div class="roadmap-item">
-
           <div class="roadmap-phase">
-            Phase 8<br>
-            Extensibility
+            Fase 8<br>
+            Extensibilidade
           </div>
 
           <div class="roadmap-content">
-
             <h3>
-              Sistema de extensões
+              Sistema de Extensões
             </h3>
 
             <p>
-              Permitir que developers possam adaptar o Bando através
-              de plugins, adapters, custom fields e hooks.
+              Dar aos desenvolvedores mais controle sobre o Bando através
+              de plugins, adapters, campos personalizados, hooks e integrações.
             </p>
 
             <div class="roadmap-tasks">
               <span class="task">Plugins</span>
               <span class="task">Adapters</span>
-              <span class="task">Custom Fields</span>
+              <span class="task">Campos personalizados</span>
               <span class="task">Hooks</span>
-              <span class="task">Integrations</span>
+              <span class="task">Integrações</span>
             </div>
-
           </div>
 
           <div class="roadmap-status status-planned">
-            ○ Planeado
+            ○ Planejado
           </div>
-
         </div>
 
 
         <!-- PHASE 9 -->
-
         <div class="roadmap-item">
-
           <div class="roadmap-phase">
-            Phase 9<br>
+            Fase 9<br>
             Realtime
           </div>
 
           <div class="roadmap-content">
-
             <h3>
-              Real-time
+              Tempo Real
             </h3>
 
             <p>
-              Adicionar atualizações em tempo real, WebSockets e
-              funcionalidades de colaboração.
+              Adicionar atualizações em tempo real, WebSockets,
+              presença e fluxos de trabalho colaborativos.
             </p>
 
             <div class="roadmap-tasks">
               <span class="task">WebSockets</span>
-              <span class="task">Live Updates</span>
-              <span class="task">Presence</span>
-              <span class="task">Collaboration</span>
+              <span class="task">Atualizações em tempo real</span>
+              <span class="task">Presença</span>
+              <span class="task">Colaboração</span>
             </div>
-
           </div>
 
           <div class="roadmap-status status-planned">
-            ○ Planeado
+            ○ Planejado
           </div>
-
         </div>
 
 
         <!-- PHASE 10 -->
-
         <div class="roadmap-item">
-
           <div class="roadmap-phase">
-            Phase 10<br>
-            Production
+            Fase 10<br>
+            Produção
           </div>
 
           <div class="roadmap-content">
-
             <h3>
-              Production Ready
+              Preparação para Produção
             </h3>
 
             <p>
-              Preparar o Bando para utilização em produção através
-              de hardening de segurança, migrations, backups,
-              observabilidade e documentação completa.
+              Fortalecer o Bando para ambientes de produção mais exigentes,
+              com maior segurança, migrations, backups, observabilidade
+              e ferramentas operacionais.
             </p>
 
             <div class="roadmap-tasks">
-              <span class="task">Security</span>
+              <span class="task">Segurança</span>
               <span class="task">Migrations</span>
               <span class="task">Backups</span>
-              <span class="task">Observability</span>
-              <span class="task">Production Docker</span>
-              <span class="task">Documentation</span>
+              <span class="task">Observabilidade</span>
+              <span class="task">Docker para produção</span>
+              <span class="task">Documentação</span>
             </div>
-
           </div>
 
           <div class="roadmap-status status-planned">
-            ○ Planeado
+            ○ Planejado
           </div>
-
         </div>
 
 
       </div>
-
     </div>
-
   </section>
 
 
   <!-- =====================================================
        PROGRESS
   ====================================================== -->
-
   <section class="progress-section">
-
     <div class="wrap">
-
       <div class="progress-panel">
 
         <div class="progress-header">
-
           <h3>
-            Progresso geral
+            Versão atual
           </h3>
 
           <span class="progress-percent">
-            50%
+            v1.0.0
           </span>
-
         </div>
 
         <div class="progress-bar">
-
           <div
             class="progress-fill"
-            style="width: 50%;"
+            style="width: 100%;"
           ></div>
-
         </div>
 
         <div class="progress-labels">
-
-          <span>Fundação funcional</span>
+          <span>Infraestrutura principal disponível</span>
           <span>v1.0.0</span>
-
         </div>
 
       </div>
-
     </div>
-
   </section>
 
 
   <!-- =====================================================
        PRINCIPLES
   ====================================================== -->
-
   <section class="principles">
-
     <div class="wrap">
-
       <div class="section-head">
-
         <span class="eyebrow">
           Princípios
         </span>
 
         <h2>
-          Algumas coisas não vamos negociar.
+          Algumas coisas não são negociáveis.
         </h2>
-
       </div>
-
 
       <div class="principles-grid">
 
         <div class="principle">
-
           <span class="principle-number">01</span>
 
           <h3>
@@ -864,15 +745,14 @@ export const roadmapMarkup = `
           </h3>
 
           <p>
-            O desenvolvimento deve funcionar localmente e permitir
-            que developers tenham controlo sobre a infraestrutura.
+            O desenvolvimento deve funcionar localmente e dar aos
+            desenvolvedores controle sobre como e onde sua
+            infraestrutura é executada.
           </p>
-
         </div>
 
 
         <div class="principle">
-
           <span class="principle-number">02</span>
 
           <h3>
@@ -881,14 +761,12 @@ export const roadmapMarkup = `
 
           <p>
             O core é aberto, auditável e desenvolvido publicamente
-            com a comunidade.
+            junto com a comunidade.
           </p>
-
         </div>
 
 
         <div class="principle">
-
           <span class="principle-number">03</span>
 
           <h3>
@@ -896,15 +774,13 @@ export const roadmapMarkup = `
           </h3>
 
           <p>
-            Os utilizadores podem executar o Bando na sua própria
-            infraestrutura.
+            Os desenvolvedores podem executar o Bando em sua própria
+            infraestrutura e manter o controle sobre seus dados.
           </p>
-
         </div>
 
 
         <div class="principle">
-
           <span class="principle-number">04</span>
 
           <h3>
@@ -912,15 +788,13 @@ export const roadmapMarkup = `
           </h3>
 
           <p>
-            Schemas, APIs, queries e ferramentas devem proporcionar
-            uma experiência fortemente tipada.
+            Schemas, APIs, queries e ferramentas devem oferecer
+            uma experiência de desenvolvimento fortemente tipada.
           </p>
-
         </div>
 
 
         <div class="principle">
-
           <span class="principle-number">05</span>
 
           <h3>
@@ -928,15 +802,13 @@ export const roadmapMarkup = `
           </h3>
 
           <p>
-            O Bando deve poder adaptar-se a diferentes stacks,
-            projetos e necessidades.
+            O Bando deve se adaptar a diferentes stacks,
+            aplicações e necessidades dos desenvolvedores.
           </p>
-
         </div>
 
 
         <div class="principle">
-
           <span class="principle-number">06</span>
 
           <h3>
@@ -944,47 +816,39 @@ export const roadmapMarkup = `
           </h3>
 
           <p>
-            Os dados e a infraestrutura continuam sob controlo
-            do utilizador.
+            Seus dados e sua infraestrutura permanecem
+            sob seu controle.
           </p>
-
         </div>
 
       </div>
-
     </div>
-
   </section>
 
 
   <!-- =====================================================
-       BUILDING IN PUBLIC
+       OPEN DEVELOPMENT
   ====================================================== -->
-
   <section class="public-development" id="open-source">
-
     <div class="wrap">
-
       <div class="public-grid">
 
         <div class="public-content">
-
           <span class="eyebrow">
-            Building in public
+            Desenvolvimento aberto
           </span>
 
           <h2>
-            Cada decisão fica visível.
+            O trabalho permanece visível.
           </h2>
 
           <p>
-            O Bando não está a ser desenvolvido numa sala fechada.
-            Queremos que a comunidade possa acompanhar a evolução,
-            discutir decisões e contribuir desde o início.
+            O Bando é desenvolvido de forma aberta. A comunidade pode
+            acompanhar releases, discutir decisões, reportar problemas
+            e contribuir diretamente para o projeto.
           </p>
 
           <ul class="public-list">
-
             <li>
               Issues públicas
             </li>
@@ -994,7 +858,7 @@ export const roadmapMarkup = `
             </li>
 
             <li>
-              Pull Requests abertas
+              Pull requests abertos
             </li>
 
             <li>
@@ -1006,16 +870,13 @@ export const roadmapMarkup = `
             </li>
 
             <li>
-              Documentação desde o início
+              Documentação desde o primeiro dia
             </li>
-
           </ul>
-
         </div>
 
 
         <div class="public-terminal">
-
           <div class="terminal-muted">
             bando/
           </div>
@@ -1042,45 +903,40 @@ export const roadmapMarkup = `
 
           <div>
             ├── <span class="terminal-green">release</span>
-            <span class="terminal-muted">v0.1.0</span>
+            <span class="terminal-muted">v1.0.0</span>
           </div>
 
           <div>
             └── <span class="terminal-amber">community</span>
             <span class="terminal-muted">contribute</span>
           </div>
-
         </div>
 
       </div>
-
     </div>
-
   </section>
 
 
   <!-- =====================================================
        CTA
   ====================================================== -->
-
   <section class="roadmap-cta">
-
     <div class="wrap">
 
       <span
         class="eyebrow"
         style="justify-content:center;"
       >
-        O próximo passo
+        O que vem a seguir
       </span>
 
       <h2>
-        O Bando está a ser construído agora.
+        O Bando v1.0.0 é apenas o começo.
       </h2>
 
       <p>
-        Acompanha o desenvolvimento, explora o código ou junta-te
-        à comunidade para ajudar a construir o futuro do projeto.
+        Use o Bando hoje, explore o código, acompanhe o roadmap
+        ou entre na comunidade e ajude a definir o que vem a seguir.
       </p>
 
       <div class="cta-actions">
@@ -1091,19 +947,17 @@ export const roadmapMarkup = `
           target="_blank"
           rel="noopener noreferrer"
         >
-          Ver no GitHub
+          Explorar GitHub
         </a>
 
         <a
           class="btn btn-ghost"
           href="/"
         >
-          Voltar ao Bando
+          Voltar para o Bando
         </a>
 
       </div>
-
     </div>
-
   </section>
-`
+`;

@@ -7,7 +7,7 @@ type BrandProps = {
 
 export function Brand({
   href = "/",
-  ariaLabel = "Bando — página inicial",
+  ariaLabel = "Bando CMS — página inicial",
 }: BrandProps) {
   return (
     <Link

@@ -1,0 +1,7 @@
+import type { ReactNode } from "react";
+
+export function Callout({ type = "info", children }: { type?: "info" | "tip" | "warning"; children: ReactNode }) { const label = type === "tip" ? "Dica" : type === "warning" ? "Atenção" : "Nota"; return <aside className={`docs-callout docs-callout-${type}`}><strong>{label}</strong><div>{children}</div></aside>; }
+export function Steps({ children }: { children: ReactNode }) { return <ol className="docs-steps">{children}</ol>; }
+export function Step({ title, children }: { title: string; children: ReactNode }) { return <li><h3>{title}</h3><div>{children}</div></li>; }
+export function ParameterTable({ rows }: { rows: { name: string; type: string; required?: string; defaultValue?: string; description: string }[] }) { return <div className="docs-table-wrap"><table className="docs-table"><thead><tr><th>Parâmetro</th><th>Tipo</th><th>Obrigatório</th><th>Por omissão</th><th>Descrição</th></tr></thead><tbody>{rows.map((r) => <tr key={r.name}><td><code>{r.name}</code></td><td>{r.type}</td><td>{r.required ?? "não"}</td><td>{r.defaultValue ?? "—"}</td><td>{r.description}</td></tr>)}</tbody></table></div>; }
+export function Endpoint({ method, path, children }: { method: string; path: string; children: ReactNode }) { return <section className="docs-endpoint"><div><span className={`method method-${method.toLowerCase()}`}>{method}</span><code>{path}</code></div>{children}</section>; }

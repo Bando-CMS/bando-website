@@ -6,9 +6,8 @@ This website is the public-facing home of Bando — where developers can discove
 
 Bando is an open source, TypeScript-first, self-hosted headless CMS built around a code-first approach to content infrastructure.
 
-> 🚧 **Early development**
->
-> The Bando website and Bando CMS are actively evolving.
+> **Bando CMS v1.0.0** is the first stable release: an installable,
+> self-hosted runtime with PostgreSQL, REST API, authentication and Studio.
 
 ---
 

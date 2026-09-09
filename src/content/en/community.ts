@@ -1,7 +1,5 @@
 export const communityMarkup = `
-
   <!-- HERO -->
-
   <section class="community-hero">
     <div class="wrap">
       <span class="eyebrow">
@@ -9,14 +7,14 @@ export const communityMarkup = `
       </span>
 
       <h1>
-        Build Bando<br />
-        <em>with us.</em>
+        Bando is open.<br />
+        <em>Come be part of it.</em>
       </h1>
 
       <p class="hero-sub">
-        Bando is being built in public.
-        The code, decisions, and evolution of the project are open
-        to anyone who wants to follow, discuss, and contribute.
+        Bando is built in the open, with code, decisions,
+        and ideas accessible to the community. Explore the project,
+        share knowledge, contribute, and help shape what comes next.
       </p>
 
       <div class="hero-actions">
@@ -35,7 +33,7 @@ export const communityMarkup = `
           target="_blank"
           rel="noreferrer"
         >
-          View on GitHub
+          Explore GitHub
         </a>
       </div>
     </div>
@@ -43,25 +41,24 @@ export const communityMarkup = `
 
 
   <!-- COMMUNITY -->
-
   <section class="section" id="comunidade">
     <div class="wrap">
       <div class="section-head">
         <span class="eyebrow">
-          Built in public
+          The community
         </span>
 
         <h2>
-          Bando grows with the community.
+          More than users.<br />
+          <em>Part of the project.</em>
         </h2>
 
         <p>
-          We don't want to build just another CMS.
-          We want to build a tool that developers can
-          understand, modify, and improve together.
+          Bando grows through the people who use it, question it,
+          experiment with it, and contribute to it. The community
+          is where ideas turn into real improvements.
         </p>
       </div>
-
 
       <div class="community-grid">
 
@@ -84,8 +81,9 @@ export const communityMarkup = `
           </h3>
 
           <p>
-            The place to talk about Bando, discuss ideas,
-            follow development, and meet other developers.
+            Talk directly with the community, share ideas,
+            ask questions, show what you're building, and
+            stay up to date with what's happening around Bando.
           </p>
 
           <a
@@ -128,9 +126,9 @@ export const communityMarkup = `
           </h3>
 
           <p>
-            Bando's source code is open.
-            Explore the project, open issues, propose changes,
-            or contribute directly through pull requests.
+            Bando's source code is public. Explore the architecture,
+            follow changes, report issues, propose improvements,
+            and contribute directly to the project.
           </p>
 
           <a
@@ -162,16 +160,18 @@ export const communityMarkup = `
           </h3>
 
           <p>
-            Code isn't the only way to contribute.
-            Documentation, tests, examples, issues, and feedback
-            also help move the project forward.
+            Code is only one way to contribute. Documentation,
+            tests, examples, issues, feedback, and knowledge
+            can all help move the project forward.
           </p>
 
           <a
             class="card-link"
             href="https://github.com/Bando-CMS/bando-cms"
+            target="_blank"
+            rel="noreferrer"
           >
-            How to contribute
+            Contribute to the project
             <span>→</span>
           </a>
         </div>
@@ -182,7 +182,6 @@ export const communityMarkup = `
 
 
   <!-- WAYS TO CONTRIBUTE -->
-
   <section class="section section-alt">
     <div class="wrap">
       <div class="section-head">
@@ -191,15 +190,14 @@ export const communityMarkup = `
         </span>
 
         <h2>
-          There is more than one way to help.
+          Contribute in the way that fits you.
         </h2>
 
         <p>
-          You don't need to know the entire Bando codebase
-          to be part of the project.
+          You don't need to know every part of Bando to contribute.
+          There are many ways to help make the project better.
         </p>
       </div>
-
 
       <div class="contribution-list">
 
@@ -214,8 +212,8 @@ export const communityMarkup = `
             </h3>
 
             <p>
-              Implement features, fix bugs, improve the architecture,
-              or help make Bando faster and more reliable.
+              Build features, fix bugs, improve the architecture,
+              or help make Bando faster, simpler, and more reliable.
             </p>
           </div>
         </div>
@@ -232,8 +230,9 @@ export const communityMarkup = `
             </h3>
 
             <p>
-              Help developers understand the project, write better examples,
-              and make Bando easier to use.
+              Help other developers understand Bando, create
+              better examples, and make the experience easier
+              to learn and use.
             </p>
           </div>
         </div>
@@ -250,8 +249,9 @@ export const communityMarkup = `
             </h3>
 
             <p>
-              Found a problem or have an idea?
-              Open an issue and help us understand what should be improved.
+              Found a problem? Have an idea?
+              Report it, explain it, and help us understand
+              how Bando can become better.
             </p>
           </div>
         </div>
@@ -264,12 +264,13 @@ export const communityMarkup = `
 
           <div>
             <h3>
-              Discussions & RFCs
+              Discussions
             </h3>
 
             <p>
-              Some important decisions need discussion before
-              they are implemented. Your opinion can be part of that process.
+              Some of the best decisions start with a conversation.
+              Share your perspective, challenge ideas, and help
+              shape the future of the project.
             </p>
           </div>
         </div>
@@ -279,32 +280,31 @@ export const communityMarkup = `
   </section>
 
 
-  <!-- BUILD IN PUBLIC -->
-
+  <!-- OPEN DEVELOPMENT -->
   <section class="section">
     <div class="wrap">
       <div class="public-build">
 
         <div>
           <span class="eyebrow">
-            Build in public
+            Open development
           </span>
 
           <h2>
-            Watch the project grow
-            from the beginning.
+            Follow Bando.<br />
+            <em>Shape what's next.</em>
           </h2>
 
           <p>
-            Bando is still in its early stages.
-            That means many of the fundamental decisions
-            are still being made.
+            Bando is already available to use. From here,
+            the project continues to evolve through new features,
+            improvements, and contributions from the community.
           </p>
 
           <p>
-            That's exactly why we want to build in public:
-            so developers can follow the process,
-            question decisions, and help shape the project.
+            By following the project closely, you can see how
+            Bando evolves, take part in discussions, and help
+            influence which problems are worth solving next.
           </p>
         </div>
 
@@ -323,11 +323,11 @@ export const communityMarkup = `
 
           <div class="status-row">
             <span>
-              Status
+              Version
             </span>
 
             <strong>
-              In development
+              1.0.0
             </strong>
           </div>
 
@@ -359,7 +359,6 @@ export const communityMarkup = `
 
 
   <!-- CTA -->
-
   <section class="final-cta">
     <div class="wrap">
 
@@ -367,18 +366,17 @@ export const communityMarkup = `
         class="eyebrow"
         style="justify-content:center;"
       >
-        The next contribution could be yours
+        The community starts with you
       </span>
 
       <h2>
-        Let's build Bando together.
+        Build something with Bando.
       </h2>
 
       <p>
-        Join the Discord, explore the code, and follow
-        the evolution of the project.
+        Join Discord, explore the code, and become part
+        of the community taking Bando further.
       </p>
-
 
       <div class="final-actions">
 
@@ -397,12 +395,10 @@ export const communityMarkup = `
           target="_blank"
           rel="noreferrer"
         >
-          View GitHub
+          Explore GitHub
         </a>
 
       </div>
-
     </div>
   </section>
-
 `;
