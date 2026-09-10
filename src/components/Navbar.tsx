@@ -9,58 +9,55 @@ type NavbarProps = {
   page: "home" | "roadmap" | "community" | "docs";
 };
 
+type NavLink = readonly [label: string, href: string];
+
 export function Navbar({ page }: NavbarProps) {
   const [open, setOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
   const langRef = useRef<HTMLDivElement>(null);
-
   const pathname = usePathname();
+
   const isEnglish = pathname.startsWith("/en");
   const prefix = isEnglish ? "/en" : "";
 
-  const links =
+  const links: NavLink[] =
     page === "home"
       ? isEnglish
         ? [
-          ["Features", `${prefix}/#features`],
-          ["Code", `${prefix}/#code`],
-          ["Community", `${prefix}/community`],
-        ]
+            ["Features", `${prefix}/#features`],
+            ["Code", `${prefix}/#code`],
+            ["Community", `${prefix}/community`],
+          ]
         : [
-          ["Recursos", `${prefix}/#recursos`],
-          ["Código", `${prefix}/#codigo`],
-          ["Comunidade", `${prefix}/community`],
-        ]
+            ["Recursos", `${prefix}/#recursos`],
+            ["Código", `${prefix}/#codigo`],
+            ["Comunidade", `${prefix}/community`],
+          ]
       : page === "roadmap"
         ? isEnglish
           ? [
-            ["Features", `${prefix}/#features`],
-            ["Architecture", "#architecture"],
-            ["Roadmap", "#roadmap"],
-            ["Open source", "#open-source"],
-          ]
+              ["Features", `${prefix}/#features`],
+              ["Architecture", "#architecture"],
+              ["Roadmap", "#roadmap"],
+              ["Open source", "#open-source"],
+            ]
           : [
-            ["Recursos", `${prefix}/#recursos`],
-            ["Arquitetura", "#arquitetura"],
-            ["Roadmap", "#roadmap"],
-            ["Open source", "#open-source"],
-          ]
+              ["Recursos", `${prefix}/#recursos`],
+              ["Arquitetura", "#arquitetura"],
+              ["Roadmap", "#roadmap"],
+              ["Open source", "#open-source"],
+            ]
         : page === "community"
           ? isEnglish
             ? [
-              ["Community", "#community"],
-              ["GitHub", "https://github.com/Bando-CMS"],
-            ]
+                ["Community", "#community"],
+                ["GitHub", "https://github.com/Bando-CMS"],
+              ]
             : [
-              ["Comunidade", "#comunidade"],
-              ["GitHub", "https://github.com/Bando-CMS"],
-            ]
-          : isEnglish
-            ? [
-              
-            ]
-            : [ ,
-            ];
+                ["Comunidade", "#comunidade"],
+                ["GitHub", "https://github.com/Bando-CMS"],
+              ]
+          : [];
 
   const basePath = isEnglish
     ? pathname.replace(/^\/en/, "") || "/"
@@ -84,7 +81,11 @@ export function Navbar({ page }: NavbarProps) {
         ? isEnglish
           ? "Community"
           : "Comunidade"
-      : page === "home" ? (isEnglish ? "Get started" : "Começar") : "Documentação";
+        : page === "home"
+          ? isEnglish
+            ? "Get started"
+            : "Começar"
+          : "Documentação";
 
   useEffect(() => {
     function handleClick(e: MouseEvent) {
@@ -144,7 +145,11 @@ export function Navbar({ page }: NavbarProps) {
       <div className="wrap">
         <Brand
           href={isEnglish ? "/en" : "/"}
-          ariaLabel={isEnglish ? "Bando — home page" : "Bando — página inicial"}
+          ariaLabel={
+            isEnglish
+              ? "Bando — home page"
+              : "Bando — página inicial"
+          }
         />
 
         <nav
@@ -188,8 +193,9 @@ export function Navbar({ page }: NavbarProps) {
               </span>
 
               <span
-                className={`language-chevron${langOpen ? " is-open" : ""
-                  }`}
+                className={`language-chevron${
+                  langOpen ? " is-open" : ""
+                }`}
               >
                 <ChevronIcon />
               </span>
@@ -232,10 +238,11 @@ export function Navbar({ page }: NavbarProps) {
                   aria-selected={isEnglish}
                 >
                   <Link
-                    href={`/en${basePath === "/"
+                    href={`/en${
+                      basePath === "/"
                         ? ""
                         : basePath
-                      }`}
+                    }`}
                     onClick={() => {
                       setLangOpen(false);
                       setOpen(false);

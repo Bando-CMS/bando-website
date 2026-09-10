@@ -292,7 +292,7 @@ export function DocsContent({ path }: { path: string }) {
             <p>
               First, create a Node project. <code>npm init</code> creates the
               <code>package.json</code>, which will be used to manage the
-              project's dependencies.
+              project&apos;s dependencies.
             </p>
 
             <CodeBlock
@@ -654,7 +654,7 @@ npx bando init`}
 
         <p>
           Imagine that every post has an author. Instead of duplicating all
-          the author's information inside the post, we can store a reference
+          the author&apos;s information inside the post, we can store a reference
           to a document in the <code>authors</code> collection.
         </p>
 
@@ -1214,101 +1214,127 @@ npx bando init`}
 
         <p>
           The Bando API may contain private content and operations that modify
-          data. For this reason, certain endpoints require the client to
-          prove that it is authorized to use them.
+          data. For this reason, certain endpoints require a valid API key
+          to authorize access.
         </p>
 
-        <h3>The authentication flow</h3>
+        <h3>How it works</h3>
 
         <div className="docs-flow">
           <div>
-            <strong>1. Login</strong>
-            <span>Send an email and password.</span>
+            <strong>1. API Key</strong>
+            <span>The client obtains an API key from the Bando project.</span>
           </div>
 
           <div>
-            <strong>2. Token</strong>
-            <span>Bando returns a token.</span>
+            <strong>2. Request</strong>
+            <span>The client sends the API key in the request header.</span>
           </div>
 
           <div>
-            <strong>3. Request</strong>
-            <span>The client sends the token.</span>
+            <strong>3. API</strong>
+            <span>Bando validates the provided API key.</span>
           </div>
 
           <div>
-            <strong>4. API</strong>
-            <span>Bando validates the authentication.</span>
+            <strong>4. Response</strong>
+            <span>The API processes the request if authentication is valid.</span>
           </div>
         </div>
 
-        <h3>Logging in</h3>
+        <h3>Using an API key</h3>
 
         <p>
-          Login is performed through <code>POST /api/auth/login</code>.
+          Requests to the Document API must include the API key through the
+          <code> X-Bando-API-Key</code> header.
         </p>
 
         <Endpoint
-          method="POST"
-          path="/api/auth/login"
+          method="GET"
+          path="/api/:collection"
         >
-          <p>Send the credentials in the request body.</p>
-
-          <CodeBlock
-            language="bash"
-            code={`curl - X POST http://localhost:3333/api/auth/login \\
-  -H "Content-Type: application/json" \\
-  -d '{"email":"admin@example.com","password":"change-me-now"}'`}
-          />
-
           <p>
-            The response contains the token, expiration date, and user data:
+            Send the API key in the request header.
           </p>
 
           <CodeBlock
-            language="json"
-            code={`{
-    "data": {
-      "token": "...",
-        "expiresAt": "...",
-          "user": { }
+            language="bash"
+            code={`curl http://localhost:3333/api/posts \\
+  -H "X-Bando-API-Key: YOUR_API_KEY"`}
+          />
+
+          <p>
+            In JavaScript, the API key can be sent as follows:
+          </p>
+
+          <CodeBlock
+            language="javascript"
+            code={`const response = await fetch(
+    "http://localhost:3333/api/posts",
+    {
+      headers: {
+        "X-Bando-API-Key": "YOUR_API_KEY",
+      },
     }
-  } `}
+  );
+
+  const { data } = await response.json(); `}
           />
         </Endpoint>
 
-        <h3>Bearer token</h3>
+        <h3>API key header</h3>
 
         <p>
-          After logging in, protected requests use the token through the
-          <code>Authorization</code> header.
+          The <code>X-Bando-API-Key</code> header identifies and authenticates
+          the project making the request.
         </p>
 
         <CodeBlock
           language="http"
-          code={`Authorization: Bearer <token>`}
+          code={`X - Bando - API - Key: YOUR_API_KEY`}
         />
 
-        <p>
-          "Bearer" means that the token provided in the header is used as the
-          request credential.
-        </p>
-
         <Callout type="warning">
-          Never place a privileged token directly in public browser code.
+          Never put a privileged API key directly in public browser code.
+          For frontend applications, use a server-side integration to keep
+          the API key private.
         </Callout>
 
-        <h3>Other authentication endpoints</h3>
+        <h3>Authenticated requests</h3>
+
+        <p>
+          Authentication is required for protected Document API endpoints.
+          The API key must be included with every request that requires
+          authentication.
+        </p>
+
+        <CodeBlock
+          language="bash"
+          code={`curl http://localhost:3333/api/posts \\
+  -H "X-Bando-API-Key: $BANDO_API_KEY"`}
+        />
+
+        <h3>Authentication errors</h3>
+
+        <p>
+          Requests without a valid API key are not authorized by the API.
+          Make sure the header is present and that the API key belongs to
+          the correct project.
+        </p>
 
         <ul>
           <li>
-            <code>GET /api/auth/me</code> — requires a token.
+            <code>X-Bando-API-Key</code> missing — the request is not
+            authenticated.
           </li>
+
           <li>
-            <code>POST /api/auth/logout</code> — requires a token.
+            Invalid API key — authentication fails.
           </li>
+
           <li>
-            <code>POST /api/auth/logout-all</code> — requires a token.
+            Valid API key — the request can be processed according to the
+            available permissions.
           </li>
         </ul>
       </div>
@@ -1542,13 +1568,13 @@ npx bando init`}
         <h3>Bando with React, Next.js, or any frontend</h3>
 
         <p>
-          Bando does not depend on a specific framework. Any frontend capable
-          of making HTTP requests can consume the content.
+          Bando is not tied to a specific framework. Any frontend capable of
+          making HTTP requests can consume Bando content.
         </p>
 
         <p>
-          This includes React, Vue, mobile applications, and other projects
-          that work with HTTP.
+          This includes React, Next.js, Vue, mobile applications, and other
+          projects that work with HTTP.
         </p>
 
         <h3>Using fetch</h3>
@@ -1559,12 +1585,12 @@ npx bando init`}
     "http://localhost:3333/api/posts",
     {
       headers: {
-        Authorization: \`Bearer \${token}\`,
-    },
-  }
-);
+        "X-Bando-API-Key": "YOUR_API_KEY",
+      },
+    }
+  );
 
-const { data, total } = await response.json();`}
+  const { data, total } = await response.json(); `}
         />
 
         <h3>Understanding the request</h3>
@@ -1574,29 +1600,31 @@ const { data, total } = await response.json();`}
         </p>
 
         <p>
-          <code>response</code> represents the HTTP response received.
+          <code>response</code> represents the HTTP response received from the
+          API.
         </p>
 
         <p>
-          <code>response.json()</code> transforms the JSON body into a
+          <code>response.json()</code> parses the JSON response body into a
           JavaScript object.
         </p>
 
         <p>
-          Finally, <code>data</code> contains the documents and
-          <code>total</code> contains the total number of results.
+          Finally, <code>data</code> contains the documents and{" "}
+          <code>total</code> indicates the total number of results.
         </p>
 
         <Callout type="warning">
-          Never put privileged tokens in a public React bundle. Any secret
+          Never put a privileged API key in a public React bundle. Any secret
           included in JavaScript sent to the browser can be inspected by the
-          user.
+          user. For public frontend applications, consider making requests
+          through your own backend.
         </Callout>
 
         <Link href="/en/docs/api/documents" className="btn btn-ghost">
           View the REST API →
         </Link>
-      </div >
+      </div>
     );
   }
 
@@ -1773,7 +1801,7 @@ const { data, total } = await response.json();`}
       <p>
         The page you are looking for does not exist or has been moved.
       </p>
-      <a href="/">Back to home</a>
+      <Link href="/">Back to home</Link>
     </>
   );
 }

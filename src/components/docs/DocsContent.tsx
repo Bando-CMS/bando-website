@@ -1274,105 +1274,125 @@ await posts.delete("document-id");`}
 
         <p>
           A API do Bando pode conter conteúdo privado e operações que alteram
-          dados. Por isso, determinados endpoints exigem que o cliente prove
-          que possui autorização para utilizá-los.
+          dados. Por isso, determinados endpoints exigem uma API key válida
+          para autorizar o acesso.
         </p>
 
-        <h3>O fluxo de autenticação</h3>
+        <h3>Como funciona</h3>
 
         <div className="docs-flow">
           <div>
-            <strong>1. Login</strong>
-            <span>Envia email e password.</span>
+            <strong>1. API Key</strong>
+            <span>O cliente obtém uma API key do projeto Bando.</span>
           </div>
 
           <div>
-            <strong>2. Token</strong>
-            <span>O Bando devolve um token.</span>
+            <strong>2. Request</strong>
+            <span>O cliente envia a API key no header da request.</span>
           </div>
 
           <div>
-            <strong>3. Request</strong>
-            <span>O cliente envia o token.</span>
+            <strong>3. API</strong>
+            <span>O Bando valida a API key apresentada.</span>
           </div>
 
           <div>
-            <strong>4. API</strong>
-            <span>O Bando valida a autenticação.</span>
+            <strong>4. Response</strong>
+            <span>A API processa a request se a autenticação for válida.</span>
           </div>
         </div>
 
-        <h3>Fazer login</h3>
+        <h3>Usar uma API key</h3>
 
         <p>
-          O login é feito através de <code>POST /api/auth/login</code>.
+          Requests para a Document API devem incluir a API key através do
+          header <code>X-Bando-API-Key</code>.
         </p>
 
         <Endpoint
-          method="POST"
-          path="/api/auth/login"
+          method="GET"
+          path="/api/:collection"
         >
           <p>
-            Envia as credenciais no body da request.
+            Envia a API key no header da request.
           </p>
 
           <CodeBlock
             language="bash"
-            code={`curl -X POST http://localhost:3333/api/auth/login \\
-  -H "Content-Type: application/json" \\
-  -d '{"email":"admin@example.com","password":"change-me-now"}'`}
+            code={`curl http://localhost:3333/api/posts \\
+  -H "X-Bando-API-Key: YOUR_API_KEY"`}
           />
 
           <p>
-            A resposta contém o token, a data de expiração e os dados do
-            utilizador:
+            Em JavaScript, a API key pode ser enviada da seguinte forma:
           </p>
 
           <CodeBlock
-            language="json"
-            code={`{
-  "data": {
-    "token": "...",
-    "expiresAt": "...",
-    "user": {}
+            language="javascript"
+            code={`const response = await fetch(
+  "http://localhost:3333/api/posts",
+  {
+    headers: {
+      "X-Bando-API-Key": "YOUR_API_KEY",
+    },
   }
-}`}
+);
+
+const { data } = await response.json();`}
           />
         </Endpoint>
 
-        <h3>Bearer token</h3>
+        <h3>API key no header</h3>
 
         <p>
-          Depois do login, requests protegidas utilizam o token através do
-          header <code>Authorization</code>.
+          O header <code>X-Bando-API-Key</code> identifica e autentica o
+          projeto que está fazendo a request.
         </p>
 
         <CodeBlock
           language="http"
-          code={`Authorization: Bearer <token>`}
+          code={`X-Bando-API-Key: YOUR_API_KEY`}
         />
 
-        <p>
-          "Bearer" significa que o token apresentado no header é utilizado
-          como credencial da request.
-        </p>
-
         <Callout type="warning">
-          Nunca coloques um token privilegiado diretamente no código público
-          do browser.
+          Nunca coloques uma API key privilegiada diretamente no código
+          público do browser. Para aplicações frontend, utiliza uma
+          integração server-side para manter a API key privada.
         </Callout>
 
-        <h3>Outros endpoints de autenticação</h3>
+        <h3>Requests autenticadas</h3>
+
+        <p>
+          A autenticação é necessária para os endpoints da Document API
+          protegidos. A API key deve ser enviada em cada request que exigir
+          autenticação.
+        </p>
+
+        <CodeBlock
+          language="bash"
+          code={`curl http://localhost:3333/api/posts \\
+  -H "X-Bando-API-Key: $BANDO_API_KEY"`}
+        />
+
+        <h3>Erros de autenticação</h3>
+
+        <p>
+          Requests sem uma API key válida não são autorizadas pela API.
+          Verifica se o header está presente e se a API key pertence ao
+          projeto correto.
+        </p>
 
         <ul>
           <li>
-            <code>GET /api/auth/me</code> — requer token.
+            <code>X-Bando-API-Key</code> ausente — a request não está
+            autenticada.
           </li>
           <li>
-            <code>POST /api/auth/logout</code> — requer token.
+            API key inválida — a autenticação falha.
           </li>
           <li>
-            <code>POST /api/auth/logout-all</code> — requer token.
+            API key válida — a request pode ser processada de acordo com
+            as permissões disponíveis.
           </li>
         </ul>
       </div>
@@ -1629,8 +1649,8 @@ return (
         </p>
 
         <p>
-          Isto inclui React, Vue, aplicações mobile e outros projetos que trabalhem
-          com HTTP.
+          Isto inclui React, Next.js, Vue, aplicações mobile e outros projetos
+          que trabalhem com HTTP.
         </p>
 
         <h3>Usando fetch</h3>
@@ -1641,7 +1661,7 @@ return (
   "http://localhost:3333/api/posts",
   {
     headers: {
-      Authorization: \`Bearer \${token}\`,
+      "X-Bando-API-Key": "YOUR_API_KEY",
     },
   }
 );
@@ -1665,14 +1685,15 @@ const { data, total } = await response.json();`}
         </p>
 
         <p>
-          Finalmente, <code>data</code> contém os documentos e
+          Finalmente, <code>data</code> contém os documentos e{" "}
           <code>total</code> informa a quantidade total de resultados.
         </p>
 
         <Callout type="warning">
-          Nunca coloques tokens privilegiados num bundle React público.
+          Nunca coloques uma API key privilegiada num bundle React público.
           Qualquer segredo incluído no JavaScript enviado ao browser pode ser
-          inspecionado pelo utilizador.
+          inspecionado pelo utilizador. Para aplicações frontend públicas,
+          considera fazer as requests através do teu próprio backend.
         </Callout>
 
         <Link href="/docs/api/documents" className="btn btn-ghost">
@@ -1857,7 +1878,7 @@ const { data, total } = await response.json();`}
       <p>
         A página que procuras não existe ou foi movida.
       </p>
-      <a href="/">Voltar ao início</a>
+      <Link href="/">Voltar ao início</Link>
     </>
   );
 }
