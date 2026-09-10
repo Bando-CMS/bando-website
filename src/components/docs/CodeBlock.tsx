@@ -1,6 +1,11 @@
 "use client";
 
-import { useEffect, useMemo, useState, type ReactNode } from "react";
+import {
+  useEffect,
+  useMemo,
+  useState,
+  type ReactNode,
+} from "react";
 import { codeToHtml } from "shiki";
 
 type CodeBlockProps = {
@@ -29,17 +34,21 @@ const languageMap: Record<string, string> = {
 };
 
 function getHighlightedLines(html: string) {
-  const document = new DOMParser().parseFromString(html, "text/html");
+  const document = new DOMParser().parseFromString(
+    html,
+    "text/html",
+  );
 
-  return Array.from(document.querySelectorAll("pre code .line"), (line) =>
-    line.innerHTML,
+  return Array.from(
+    document.querySelectorAll("pre code .line"),
+    (line) => line.innerHTML,
   );
 }
 
 export function FileLabel({ path }: { path: string }) {
   return (
     <div className="docs-file-label">
-      <span>{path}</span>
+      <span title={path}>{path}</span>
     </div>
   );
 }
@@ -48,7 +57,10 @@ type FileCodeBlockProps = Omit<CodeBlockProps, "filename"> & {
   path: string;
 };
 
-export function FileCodeBlock({ path, ...props }: FileCodeBlockProps) {
+export function FileCodeBlock({
+  path,
+  ...props
+}: FileCodeBlockProps) {
   return <CodeBlock {...props} filename={path} />;
 }
 
@@ -60,25 +72,47 @@ export function CodeBlock({
   panelId,
 }: CodeBlockProps) {
   const [copied, setCopied] = useState(false);
-  const [highlightedLines, setHighlightedLines] = useState<string[] | null>(null);
+  const [highlightedLines, setHighlightedLines] =
+    useState<string[] | null>(null);
+
   const source = code;
-  const sourceLines = useMemo(() => source.split("\n"), [source]);
+
+  const sourceLines = useMemo(
+    () => source.split("\n"),
+    [source],
+  );
+
   const lineCount = sourceLines.length;
+
   const languageLabel = language.toUpperCase();
 
   useEffect(() => {
     let cancelled = false;
+
     setHighlightedLines(null);
 
     async function highlight() {
-      const result = await codeToHtml(source, {
-        lang: languageMap[language.toLowerCase()] ?? language,
-        theme: "github-dark",
-      });
+      try {
+        const result = await codeToHtml(source, {
+          lang:
+            languageMap[language.toLowerCase()] ??
+            language,
+          theme: "github-dark",
+        });
 
-      if (!cancelled) {
+        if (cancelled) {
+          return;
+        }
+
         const lines = getHighlightedLines(result);
-        setHighlightedLines(lines.length === lineCount ? lines : null);
+
+        setHighlightedLines(
+          lines.length === lineCount ? lines : null,
+        );
+      } catch {
+        if (!cancelled) {
+          setHighlightedLines(null);
+        }
       }
     }
 
@@ -104,35 +138,60 @@ export function CodeBlock({
   }, [copied]);
 
   async function copy() {
-    await navigator.clipboard.writeText(source);
-    setCopied(true);
+    try {
+      await navigator.clipboard.writeText(source);
+      setCopied(true);
+    } catch {
+      setCopied(false);
+    }
   }
+
+  const copyButton = (
+    <button
+      type="button"
+      onClick={copy}
+      aria-label={
+        copied
+          ? "Código copiado"
+          : "Copiar código"
+      }
+      className={
+        copied
+          ? "docs-copy-button is-copied"
+          : "docs-copy-button"
+      }
+    >
+      {copied ? "Copiado" : "Copiar"}
+    </button>
+  );
 
   return (
     <div className="docs-code-block">
-      <div className="docs-code-toolbar">
-        <div className="docs-code-file">
-          {header ??
-            (filename ? (
-              <>
-                <span>{filename}</span>
-              </>
+      {header ? (
+        <div className="docs-code-header-wrapper">
+          <div className="docs-code-header">
+            {header}
+          </div>
+
+          <div className="docs-code-header-actions">
+            {copyButton}
+          </div>
+        </div>
+      ) : (
+        <div className="docs-code-toolbar">
+          <div className="docs-code-file">
+            {filename ? (
+              <span title={filename}>{filename}</span>
             ) : (
               <span>{languageLabel}</span>
-            ))}
-        </div>
+            )}
+          </div>
 
-        <div className="docs-code-actions">
-          <button
-            type="button"
-            onClick={copy}
-            aria-label={copied ? "Código copiado" : "Copiar código"}
-            className={copied ? "docs-copy-button is-copied" : "docs-copy-button"}
-          >
-            {copied ? "Copiado" : "Copiar"}
-          </button>
+          <div className="docs-code-actions">
+            {copyButton}
+          </div>
         </div>
-      </div>
+      )}
 
       <div
         className="docs-code-body"
@@ -141,14 +200,24 @@ export function CodeBlock({
       >
         <div className="docs-code-content">
           {sourceLines.map((line, index) => (
-            <div className="docs-code-line" key={index}>
-              <span className="docs-code-line-number" aria-hidden="true">
+            <div
+              className="docs-code-line"
+              key={index}
+            >
+              <span
+                className="docs-code-line-number"
+                aria-hidden="true"
+              >
                 {index + 1}
               </span>
+
               <span className="docs-code-line-source">
                 {highlightedLines ? (
                   <span
-                    dangerouslySetInnerHTML={{ __html: highlightedLines[index] }}
+                    dangerouslySetInnerHTML={{
+                      __html:
+                        highlightedLines[index],
+                    }}
                   />
                 ) : (
                   line || "\u200b"
